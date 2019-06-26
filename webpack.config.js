@@ -4,7 +4,7 @@ const path = require('path')
 
 module.exports = {
     devtool: 'source-map',
-    entry: [path.join(__dirname, 'client', 'index.js')],
+    entry: [path.join(__dirname, 'client', 'index')],
     output: {
         path: path.join(__dirname, 'public'),
         filename: 'main.js',

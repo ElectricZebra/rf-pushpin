@@ -2,7 +2,11 @@
   "name": "pushpin",
   "version": "1.0.0",
   "scripts": {
-    "dev": "webpack --watch --mode=development",
+    "start": "echo 'please see README for setup and running instructions'",
+    "build": "webpack --mode=production",
+    "build:dev": "webpack --watch --mode=development",
+    "serve": "node server/index.js",
+    "serve:dev": "nodemon server/index.js",
     "prettify": "prettier --write \"**/*.{js,jsx,json,css,scss,md}\""
   },
   "license": "MIT",
@@ -18,13 +22,19 @@
     "eslint-config-fullstack": "^5.0.0",
     "eslint-config-prettier": "^2.9.0",
     "eslint-plugin-react": "^7.7.0",
+    "nodemon": "^1.19.1",
     "prettier": "^1.18.2",
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2"
   },
   "dependencies": {
+    "express": "^4.17.1",
+    "pg": "^7.11.0",
+    "pg-hstore": "^2.3.3",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-router-dom": "^5.0.0"
+    "react-router-dom": "^5.0.0",
+    "sequelize": "^5.8.12",
+    "volleyball": "^1.5.1"
   }
 }
