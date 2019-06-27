@@ -14,8 +14,8 @@ User.hasMany(Board, { as: 'owner' })
 Board.belongsTo(User, { as: 'owner' })
 
 // a board has many pins and a pin can be on many boards
-Pin.belongsToMany(Board, { through: 'pin_board' })
-Board.belongsToMany(Pin, { through: 'pin_board' })
+Pin.belongsToMany(Board, { through: 'saves' })
+Board.belongsToMany(Pin, { through: 'saves' })
 // this creates the Sequelize method `board.getPins()` for example
 
 module.exports = {

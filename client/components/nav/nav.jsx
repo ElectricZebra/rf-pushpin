@@ -3,8 +3,8 @@ import { Link, NavLink } from 'react-router-dom'
 
 import SearchForm from './search-form'
 
-const MyLink = ({ to, children }) => (
-    <NavLink exact to={to} className="navbar-item" activeClassName="is-active">
+const MyLink = ({ children, ...props }) => (
+    <NavLink className="navbar-item" activeClassName="is-active" {...props}>
         {children}
     </NavLink>
 )
@@ -25,7 +25,9 @@ const NavLeft = () => (
         <div className="navbar-item">
             <SearchForm />
         </div>
-        <MyLink to="/">Home</MyLink>
+        <MyLink exact to="/">
+            Home
+        </MyLink>
         <MyLink to="/about">About</MyLink>
         <MyLink to="/profile">Profile</MyLink>
     </div>
@@ -48,7 +50,7 @@ const Nav = () => (
     <nav
         className="navbar is-white is-fixed-top"
         role="navigation"
-        aria-label="main navigation"
+        aria-label="main"
     >
         <Brand />
         <div className="navbar-menu">

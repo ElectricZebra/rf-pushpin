@@ -11,7 +11,7 @@
     background-color: #f6f6f6;
 }
 
-.navbar {
+.navbar[aria-label=main] {
     border-bottom: 1px solid #ddd;
 }
 
