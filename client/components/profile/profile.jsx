@@ -14,35 +14,25 @@ const Person = () => (
     </section>
 )
 
-const NavContainer = ({ children }) => (
-    <div className="container">
-        <nav className="navbar" role="navigation" aria-label="sub-page">
-            <div className="navbar-menu">
-                <div className="navbar-start">
-                    <div className="navbar-item buttons">{children}</div>
-                </div>
-            </div>
-        </nav>
-    </div>
-)
-
 const ProfileNav = () => (
-    <NavContainer>
-        <NavLink
-            className="button is-rounded is-light"
-            activeClassName="is-active"
-            to="/profile/boards"
-        >
-            Boards
-        </NavLink>
-        <NavLink
-            className="button is-rounded is-light"
-            activeClassName="is-active"
-            to="/profile/pins"
-        >
-            Pins
-        </NavLink>
-    </NavContainer>
+    <section className="section" id="profile-nav">
+        <div className="container buttons">
+            <NavLink
+                className="button is-rounded is-light"
+                activeClassName="is-active"
+                to="/profile/boards"
+            >
+                Boards
+            </NavLink>
+            <NavLink
+                className="button is-rounded is-light"
+                activeClassName="is-active"
+                to="/profile/pins"
+            >
+                Pins
+            </NavLink>
+        </div>
+    </section>
 )
 
 const ProfileRoutes = () => (

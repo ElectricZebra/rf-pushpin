@@ -16,6 +16,11 @@
     font-weight: 600;
 }
 
+#profile-nav {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
 .pin {
     width: 230px;
     border-radius: 10px;
