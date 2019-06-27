@@ -38,7 +38,7 @@ class Gallery extends React.Component {
 
     render() {
         return (
-            <div className="section">
+            <section className="section">
                 <div className="columns is-centered">
                     <div className="column is-narrow has-text-centered">
                         <MasonryLayout
@@ -60,7 +60,7 @@ class Gallery extends React.Component {
                         </MasonryLayout>
                     </div>
                 </div>
-            </div>
+            </section>
         )
     }
 }
