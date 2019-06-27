@@ -6,9 +6,9 @@ const Home = () => (
     <>
         <section className="section">
             <div className="container">
-                <h1 className="title">Hello World</h1>
+                <h1 className="title">Welcome to PushPin</h1>
                 <p className="subtitle">
-                    Example <strong>text</strong>!
+                    Pushing and Popping your Favorite Pins
                 </p>
             </div>
         </section>
