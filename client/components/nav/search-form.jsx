@@ -25,13 +25,20 @@ const SearchButton = () => (
     </p>
 )
 
-const SearchForm = () => (
-    <form id="nav-search">
-        <div className="field has-addons">
-            <SearchInput />
-            <SearchButton />
-        </div>
-    </form>
-)
+class SearchForm extends React.Component {
+    onSubmit = event => {
+        event.preventDefault()
+    }
+    render() {
+        return (
+            <form id="nav-search" onSubmit={this.onSubmit}>
+                <div className="field has-addons">
+                    <SearchInput />
+                    <SearchButton />
+                </div>
+            </form>
+        )
+    }
+}
 
 export default SearchForm
