@@ -13,6 +13,12 @@ const Loader = () => (
     </section>
 )
 
+const Loaded = () => (
+    <section className="section">
+        <em className="has-text-grey-lighter">(all pins loaded)</em>
+    </section>
+)
+
 class AllPins extends React.Component {
     constructor(props) {
         super(props)
@@ -72,6 +78,7 @@ class AllPins extends React.Component {
                             infiniteScrollLoading={this.state.loading}
                             infiniteScrollSpinner={<Loader />}
                             infiniteScrollEnd={this.state.end}
+                            infiniteScrollEndIndicator={<Loaded />}
                         >
                             {this.state.pins.map(pin => (
                                 <Pin key={pin.id} pin={pin} />
