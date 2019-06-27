@@ -1,20 +1,7 @@
 import React from 'react'
 import MasonryLayout from 'react-masonry-layout'
-import { Link } from 'react-router-dom'
 
-const Brick = ({ data }) => {
-    const { id, height } = data
-    return (
-        <div className="brick" style={{ height }}>
-            <Link to={`/pin/${id}`}>
-                <img
-                    src={`https://picsum.photos/230/${height}?random=${id}`}
-                    style={{ borderRadius: '10px' }}
-                />
-            </Link>
-        </div>
-    )
-}
+import Pin from './pin'
 
 const randomItems = () =>
     Array.from({ length: 25 }, () => ({
@@ -34,7 +21,7 @@ class Gallery extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            items: randomItems(),
+            pins: randomItems(),
             loading: false,
         }
     }
@@ -43,7 +30,7 @@ class Gallery extends React.Component {
         this.setState({ loading: true })
         setTimeout(() => {
             this.setState(oldState => ({
-                items: [...oldState.items, ...randomItems()],
+                pins: [...oldState.pins, ...randomItems()],
                 loading: false,
             }))
         }, 1000)
@@ -67,8 +54,8 @@ class Gallery extends React.Component {
                             infiniteScrollLoading={this.state.loading}
                             infiniteScrollSpinner={<Loader />}
                         >
-                            {this.state.items.map(item => (
-                                <Brick key={item.id} data={item} />
+                            {this.state.pins.map(pin => (
+                                <Pin key={pin.id} pin={pin} />
                             ))}
                         </MasonryLayout>
                     </div>

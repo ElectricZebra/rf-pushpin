@@ -15,7 +15,7 @@
     border-bottom: 1px solid #ddd;
 }
 
-.brick {
+.pin {
     width: 230px;
     border-radius: 10px;
     background: linear-gradient(
@@ -26,11 +26,11 @@
     display: block;
 }
 
-.brick > a {
+.pin > a {
     cursor: zoom-in;
 }
 
-.brick img {
+.pin img {
     -webkit-transition: all 0.2s ease;
     -moz-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
@@ -38,7 +38,7 @@
     transition: all 0.2s ease;
 }
 
-.brick img:hover {
+.pin img:hover {
     -webkit-filter: brightness(70%);
     filter: brightness(70%);
 }
