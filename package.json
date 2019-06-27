@@ -2,6 +2,7 @@
   "name": "pushpin",
   "version": "1.0.0",
   "scripts": {
+    "seed": "node scripts/seed",
     "start": "echo 'please see README for setup and running instructions'",
     "build": "webpack --mode=production",
     "build:dev": "webpack --watch --mode=development",
