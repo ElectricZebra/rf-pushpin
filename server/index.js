@@ -1,15 +1,24 @@
 const { join, extname } = require('path')
 const express = require('express')
 const volleyball = require('volleyball')
+const api = require('./api')
 
 const app = express()
 
 app.use(volleyball)
 
+app.use('/api', api)
+
 app.use(express.static(join(__dirname, '..', 'public')))
 
 // statically serve our CSS framework
 app.use(express.static(join(__dirname, '..', 'node_modules', 'bulma', 'css')))
+
+// statically serve our seed images – normally we would host these, e.g. on S3
+app.use(
+    '/images',
+    express.static(join(__dirname, '..', 'scripts', 'seed-images'))
+)
 
 // any remaining requests with an extension (.js, .css, etc.) send 404
 app.use((req, res, next) => {

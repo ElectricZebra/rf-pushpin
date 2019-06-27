@@ -20,5 +20,7 @@ Board.belongsToMany(Pin, { through: 'saves' })
 
 module.exports = {
     db,
-    Pin
+    Pin,
+    User,
+    Board,
 }

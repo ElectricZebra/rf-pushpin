@@ -8,6 +8,12 @@ const Pin = db.define('pin', {
     },
     description: {
         type: Sequelize.STRING(500)
+    },
+    width: {
+        type: Sequelize.INTEGER
+    },
+    height: {
+        type: Sequelize.INTEGER
     }
 })
 

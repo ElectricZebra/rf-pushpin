@@ -1,9 +1,9 @@
 import React from 'react'
 
-import Gallery from './gallery/gallery'
+import AllPins from './gallery/all-pins'
 
 const Home = () => (
-    <Gallery />
+    <AllPins />
 )
 
 export default Home
