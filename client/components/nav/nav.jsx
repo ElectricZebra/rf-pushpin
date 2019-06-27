@@ -2,6 +2,9 @@ import React from 'react'
 import { Link, NavLink } from 'react-router-dom'
 
 import SearchForm from './search-form'
+import Logo from './logo'
+import Title from './title'
+import Burger from './burger'
 
 const MyLink = ({ children, ...props }) => (
     <NavLink className="navbar-item" activeClassName="is-active" {...props}>
@@ -9,51 +12,64 @@ const MyLink = ({ children, ...props }) => (
     </NavLink>
 )
 
-const Brand = () => (
-    <div className="navbar-brand">
-        <Link to="/" className="navbar-item">
-            <img id="logo" src="/images/pushpin.png" className="navbar-item" />
-        </Link>
-        <Link to="/" className="navbar-item">
-            <strong>PushPin</strong>
-        </Link>
-    </div>
-)
-
-const NavLeft = () => (
-    <div className="navbar-start">
-        <div className="navbar-item">
-            <SearchForm />
-        </div>
+const LeftLinks = () => (
+    <>
         <MyLink exact to="/">
             Home
         </MyLink>
         <MyLink to="/about">About</MyLink>
         <MyLink to="/profile">Profile</MyLink>
+    </>
+)
+
+const RightLinks = () => (
+    <div className="navbar-item buttons">
+        <Link to="/login" className="button is-danger is-rounded is-outlined">
+            Log in
+        </Link>
     </div>
 )
 
-const NavRight = () => (
-    <div className="navbar-end">
-        <div className="navbar-item buttons">
-            <a className="button is-danger is-rounded is-outlined">Sign up</a>
-            <a className="button is-light is-rounded">Log in</a>
-        </div>
-    </div>
-)
-
-const Nav = () => (
-    <nav
-        className="navbar is-white is-fixed-top"
-        role="navigation"
-        aria-label="main"
-    >
-        <Brand />
-        <div className="navbar-menu">
-            <NavLeft />
-            <NavRight />
-        </div>
-    </nav>
-)
+class Nav extends React.Component {
+    constructor() {
+        super()
+        this.state = {
+            active: false,
+        }
+    }
+    toggleActive = () => {
+        this.setState(oldState => ({
+            active: !oldState.active,
+        }))
+    }
+    render() {
+        const isActive = this.state.active ? ' is-active' : ''
+        return (
+            <nav
+                className="navbar is-fixed-top"
+                role="navigation"
+                aria-label="main"
+            >
+                <div className="navbar-brand">
+                    <Logo />
+                    <Title />
+                    <Burger
+                        active={this.state.active}
+                        onClick={this.toggleActive}
+                    />
+                </div>
+                <div className={'navbar-menu' + isActive}>
+                    <div className="navbar-start">
+                        <SearchForm />
+                        <LeftLinks />
+                    </div>
+                    <div className="navbar-end">
+                        <RightLinks />
+                    </div>
+                </div>
+            </nav>
+        )
+    }
+}
 
 export default Nav

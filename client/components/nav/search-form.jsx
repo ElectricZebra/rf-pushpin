@@ -31,12 +31,14 @@ class SearchForm extends React.Component {
     }
     render() {
         return (
-            <form id="nav-search" onSubmit={this.onSubmit}>
-                <div className="field has-addons">
-                    <SearchInput />
-                    <SearchButton />
-                </div>
-            </form>
+            <div className="navbar-item">
+                <form id="nav-search" onSubmit={this.onSubmit}>
+                    <div className="field has-addons">
+                        <SearchInput />
+                        <SearchButton />
+                    </div>
+                </form>
+            </div>
         )
     }
 }
