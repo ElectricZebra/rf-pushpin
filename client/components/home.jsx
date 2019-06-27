@@ -1,5 +1,7 @@
 import React from 'react'
 
+import Gallery from './gallery/gallery'
+
 const Home = () => (
     <>
         <section className="section">
@@ -10,6 +12,7 @@ const Home = () => (
                 </p>
             </div>
         </section>
+        <Gallery />
     </>
 )
 
