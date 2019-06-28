@@ -1,7 +1,7 @@
 const React = require('react')
 import { NavLink, Route, Redirect } from 'react-router-dom'
 
-import Gallery from '../gallery/gallery'
+import AllPins from '../gallery/all-pins'
 
 const Person = () => (
     <section className="section">
@@ -39,7 +39,7 @@ const ProfileRoutes = () => (
     <>
         <Redirect exact from="/profile" to="/profile/boards" />
         {/* <Route path="/profile/boards" component={Gallery} /> */}
-        <Route path="/profile/pins" component={Gallery} />
+        <Route path="/profile/pins" component={AllPins} />
     </>
 )
 
