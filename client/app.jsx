@@ -6,6 +6,7 @@ import Home from './components/home'
 import Profile from './components/profile'
 import About from './components/about'
 import PinDetail from './components/pin-detail/single-pin'
+import Boards from './gallery/boards'
 
 const App = () => (
     <Router>
@@ -14,6 +15,7 @@ const App = () => (
         <Route path="/profile" component={Profile} />
         <Route path="/about" component={About} />
         <Route path="/pin/:id" component={PinDetail} />
+        <Route path='/boards' component={Boards} />
     </Router>
 )
 

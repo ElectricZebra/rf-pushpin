@@ -20,6 +20,11 @@ app.use(
     express.static(join(__dirname, '..', 'scripts', 'seed-images'))
 )
 
+app.use('/api/boards', require('./api/boards'))
+
+app.use('/api/pins', require('./api/pins'))
+
+
 // any remaining requests with an extension (.js, .css, etc.) send 404
 app.use((req, res, next) => {
     if (extname(req.path).length) {
