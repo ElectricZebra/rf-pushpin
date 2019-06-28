@@ -22,35 +22,15 @@ class AllPins extends React.Component {
         }
     }
 
-    handleError(err) {
-        this.setState({ loading: false })
-        console.error(err)
-    }
-
     async componentDidMount() {
         try {
-            const pins = await this.getAllPins()
+            this.setState({ loading: true })
+            const { data: pins } = await axios.get('/api/pins')
             this.setState({ pins })
         } catch (err) {
-            this.handleError(err)
-        }
-    }
-
-    async getAllPins() {
-        this.setState({ loading: true })
-        const { data: pins } = await axios.get('/api/pins')
-        this.setState({ loading: false })
-        return pins
-    }
-
-    loadItems = async () => {
-        try {
-            const pins = await this.getAllPins()
-            this.setState(oldState => ({
-                pins: [...oldState.pins, ...pins],
-            }))
-        } catch (err) {
-            this.handleError(err)
+            console.error(err)
+        } finally {
+            this.setState({ loading: false })
         }
     }
 
