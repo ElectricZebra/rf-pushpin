@@ -13,56 +13,51 @@ const Loader = () => (
     </section>
 )
 
-const Loaded = () => (
-    <section className="section">
-        <em className="has-text-grey-lighter">(all pins loaded)</em>
-    </section>
-)
-
 class AllPins extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
             pins: [],
             loading: false,
-            end: false,
         }
+    }
+
+    handleError(err) {
+        this.setState({ loading: false })
+        console.error(err)
     }
 
     async componentDidMount() {
         try {
-            const { end, pins } = await this.getPins(0)
-            this.setState({ end, pins })
+            const pins = await this.getAllPins()
+            this.setState({ pins })
         } catch (err) {
-            console.error(err)
+            this.handleError(err)
         }
     }
 
-    async getPins(offset = 0) {
+    async getAllPins() {
         this.setState({ loading: true })
-        const { data } = await axios.get('/api/pins', {
-            params: { offset },
-        })
+        const { data: pins } = await axios.get('/api/pins')
         this.setState({ loading: false })
-        return data
+        return pins
     }
 
     loadItems = async () => {
         try {
-            const offset = this.state.pins.length
-            const { pins, end } = await this.getPins(offset)
+            const pins = await this.getAllPins()
             this.setState(oldState => ({
-                end,
                 pins: [...oldState.pins, ...pins],
             }))
         } catch (err) {
-            console.error(err)
+            this.handleError(err)
         }
     }
 
     render() {
         return (
             <section className="section">
+                {this.state.loading ? <Loader /> : null}
                 <div className="columns is-centered">
                     <div className="column is-narrow has-text-centered">
                         <MasonryLayout
@@ -74,11 +69,7 @@ class AllPins extends React.Component {
                                 { mq: '1070px', columns: 4, gutter: 20 },
                                 { mq: '1300px', columns: 5, gutter: 20 },
                             ]}
-                            infiniteScroll={this.loadItems}
-                            infiniteScrollLoading={this.state.loading}
-                            infiniteScrollSpinner={<Loader />}
-                            infiniteScrollEnd={this.state.end}
-                            infiniteScrollEndIndicator={<Loaded />}
+                            infiniteScrollDisabled
                         >
                             {this.state.pins.map(pin => (
                                 <Pin key={pin.id} pin={pin} />
