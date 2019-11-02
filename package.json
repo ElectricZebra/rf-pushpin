@@ -39,7 +39,7 @@
     "react-dom": "^16.8.6",
     "react-masonry-layout": "^0.4.0",
     "react-router-dom": "^5.0.0",
-    "sequelize": "^5.8.12",
+    "sequelize": "^5.15.1",
     "volleyball": "^1.5.1"
   }
 }
